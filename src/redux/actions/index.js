@@ -4,6 +4,7 @@ export const HIP_HOP = "HIP_HOP";
 export const FAVOURITES = "FAVOURITES";
 export const SONG = "SONG";
 export const IS_SELECTED = "IS_SELECTED";
+export const USER_INPUT = "USER_INPUT";
 
 export const getSongs = (type, artistName) => {
   return async (dispatch) => {

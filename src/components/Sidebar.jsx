@@ -1,6 +1,12 @@
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { USER_INPUT } from "../redux/actions";
 const Sidebar = () => {
+  const [inputValue, setInputvalue] = useState("");
+  const dispatch = useDispatch();
+
   return (
     <aside className="col col-2">
       <nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
@@ -33,12 +39,28 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li>
-                  <div className="input-group mt-3">
+                  <Form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      dispatch({ type: USER_INPUT, payload: inputValue });
+                    }}
+                  >
+                    <Form.Group className="mt-3">
+                      <Form.Control type="text" className="form-control" placeholder="Search" aria-label="Search" value={inputValue} onChange={(e) => setInputvalue(e.target.value)} />
+                      <div className="input-group-append">
+                        <Button type="submit" className="btn-secondary btn-sm h-100">
+                          GO
+                        </Button>
+                      </div>
+                    </Form.Group>
+                  </Form>
+
+                  {/* <div className="input-group mt-3">
                     <input type="text" className="form-control" placeholder="Search" aria-label="Search" />
                     <div className="input-group-append">
                       <button className="btn btn-outline-secondary btn-sm h-100">GO</button>
                     </div>
-                  </div>
+                  </div> */}
                 </li>
               </ul>
             </div>

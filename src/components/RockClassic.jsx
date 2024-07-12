@@ -11,12 +11,14 @@ const RockClassic = () => {
 
   const favourites = useSelector((state) => state.mainHomeReducers.favourites);
 
+  const userInput = useSelector((state) => state.mainHomeReducers.userInput);
+
   // console.log("Fav", favourites);
 
   useEffect(() => {
-    dispatch(getSongs(ROCK_CLASSIC, "queen"));
+    dispatch(getSongs(ROCK_CLASSIC, userInput));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userInput]);
 
   return rockClassic.slice(0, 4).map((song) => {
     return (
