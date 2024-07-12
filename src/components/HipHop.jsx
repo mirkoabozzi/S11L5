@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSongs, HIP_HOP, SELECT_SONG, SONG } from "../redux/actions";
+import { getSongs, HIP_HOP, SONG } from "../redux/actions";
 import { Col, Image } from "react-bootstrap";
 
 const HipHop = () => {
   const hipHop = useSelector((state) => state.mainHomeReducers.hipHop);
-  // const isSelected = useSelector((state) => state.mainHomeReducers.isSelected);
   const dispatch = useDispatch();
 
-  console.log("hip", hipHop);
+  // console.log("hip", hipHop);
 
   useEffect(() => {
     dispatch(getSongs(HIP_HOP, "eminem"));
@@ -26,7 +25,6 @@ const HipHop = () => {
             dispatch({ type: SONG, payload: song });
           }}
         />
-        {/* {isSelected && <span>❤️</span>} */}
 
         <p>
           Track: {song.title}

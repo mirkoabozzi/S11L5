@@ -1,8 +1,9 @@
 export const ROCK_CLASSIC = "ROCK_CLASSIC";
 export const POP_CULTURE = "POP_CULTURE";
 export const HIP_HOP = "HIP_HOP";
-export const SELECT_SONG = "SELECT_SONG";
+export const FAVOURITES = "FAVOURITES";
 export const SONG = "SONG";
+export const IS_SELECTED = "IS_SELECTED";
 
 export const getSongs = (type, artistName) => {
   return async (dispatch) => {

@@ -1,13 +1,14 @@
+import { Button, Container } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
 const Sidebar = () => {
   return (
     <aside className="col col-2">
       <nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
-        <div className="container flex-column align-items-start">
+        <Container className="flex-column align-items-start">
           <a className="navbar-brand" href="index.html">
             <img src={logo} alt="Spotify Logo" width="131" height="40" />
           </a>
-          <button
+          <Button
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -17,7 +18,7 @@ const Sidebar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </Button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <ul>
@@ -42,14 +43,14 @@ const Sidebar = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
         <div className="nav-btn">
-          <button className="btn signup-btn" type="button">
+          <Button className="btn signup-btn" type="button">
             Sign Up
-          </button>
-          <button className="btn login-btn" type="button">
+          </Button>
+          <Button className="btn login-btn" type="button">
             Login
-          </button>
+          </Button>
           <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
         </div>
       </nav>

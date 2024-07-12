@@ -15,15 +15,17 @@ const Player = () => {
         <Col lg="10" className="offset-lg-2">
           <Row className="h-100 justify-content-center">
             <Col xs="4">
-              <Row>
-                <Col xs="3">
-                  <Image className="img-fluid mt-2" width="70" src={song.album.cover_medium} alt="track" />
-                </Col>
-                <Col xs="8">
-                  <p className="text-white">{song.title}</p>
-                  <p className="text-white">{song.artist.name}</p>
-                </Col>
-              </Row>
+              {song && (
+                <Row>
+                  <Col xs="3">
+                    <Image className="img-fluid mt-2" width="70" src={song.album.cover_medium} alt="track" />
+                  </Col>
+                  <Col xs="8">
+                    <p className="text-white">{song.title}</p>
+                    <p className="text-white">{song.artist.name}</p>
+                  </Col>
+                </Row>
+              )}
             </Col>
             <Col xs="8" md="6" className="playerControls">
               <div className="d-flex">
