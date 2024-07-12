@@ -1,4 +1,4 @@
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,11 +9,11 @@ const Sidebar = () => {
 
   return (
     <aside className="col col-2">
-      <nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
+      <Navbar className=" navbar-expand-md fixed-left justify-content-between" id="sidebar">
         <Container className="flex-column align-items-start">
-          <a className="navbar-brand" href="index.html">
+          <Navbar.Brand href="index.html">
             <img src={logo} alt="Spotify Logo" width="131" height="40" />
-          </a>
+          </Navbar.Brand>
           <Button
             className="navbar-toggler"
             type="button"
@@ -25,18 +25,18 @@ const Sidebar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </Button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+          <Navbar.Collapse id="navbarNavAltMarkup">
+            <Nav>
               <ul>
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center" href="#">
+                  <Nav.Link className="nav-item d-flex align-items-center" href="#">
                     <i className="bi bi-house-door-fill"></i>&nbsp; Home
-                  </a>
+                  </Nav.Link>
                 </li>
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center" href="#">
+                  <Nav.Link className="nav-item d-flex align-items-center" href="#">
                     <i className="bi bi-book-fill"></i>&nbsp; Your Library
-                  </a>
+                  </Nav.Link>
                 </li>
                 <li>
                   <Form
@@ -56,8 +56,8 @@ const Sidebar = () => {
                   </Form>
                 </li>
               </ul>
-            </div>
-          </div>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
         <div className="nav-btn">
           <Button className="btn signup-btn" type="button">
@@ -68,7 +68,7 @@ const Sidebar = () => {
           </Button>
           <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
         </div>
-      </nav>
+      </Navbar>
     </aside>
   );
 };
