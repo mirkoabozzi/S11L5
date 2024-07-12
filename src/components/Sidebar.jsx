@@ -48,19 +48,12 @@ const Sidebar = () => {
                     <Form.Group className="mt-3">
                       <Form.Control type="text" className="form-control" placeholder="Search" aria-label="Search" value={inputValue} onChange={(e) => setInputvalue(e.target.value)} />
                       <div className="input-group-append">
-                        <Button type="submit" className="btn-secondary btn-sm h-100">
+                        <Button type="submit" className="bg-transparent btn-secondary btn-sm h-100 mt-2">
                           GO
                         </Button>
                       </div>
                     </Form.Group>
                   </Form>
-
-                  {/* <div className="input-group mt-3">
-                    <input type="text" className="form-control" placeholder="Search" aria-label="Search" />
-                    <div className="input-group-append">
-                      <button className="btn btn-outline-secondary btn-sm h-100">GO</button>
-                    </div>
-                  </div> */}
                 </li>
               </ul>
             </div>

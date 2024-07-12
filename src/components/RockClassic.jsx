@@ -22,7 +22,7 @@ const RockClassic = () => {
 
   return rockClassic.slice(0, 4).map((song) => {
     return (
-      <Col key={song.id} className="text-center position-relative">
+      <Col key={song.id} className="text-center">
         <Image
           className="img-fluid"
           src={song.album.cover_medium}
@@ -32,7 +32,6 @@ const RockClassic = () => {
           }}
         />
         <div
-          className="position-absolute top-50 end-0 me-3"
           onClick={() => {
             dispatch({ type: IS_SELECTED, payload: true });
             dispatch({ type: FAVOURITES, payload: song });

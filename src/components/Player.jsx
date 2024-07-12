@@ -13,11 +13,11 @@ const Player = () => {
     <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="h-100">
         <Col lg="10" className="offset-lg-2">
-          <Row className="h-100 justify-content-center">
+          <Row className="h-100 offset-md-1 ">
             <Col xs="4">
               {song && (
                 <Row>
-                  <Col xs="3">
+                  <Col xs="12" md="4">
                     <Image className="img-fluid mt-2" width="70" src={song.album.cover_medium} alt="track" />
                   </Col>
                   <Col xs="8">
@@ -27,7 +27,7 @@ const Player = () => {
                 </Row>
               )}
             </Col>
-            <Col xs="8" md="6" className="playerControls">
+            <Col xs="8" md="4" className="playerControls">
               <div className="d-flex">
                 <a href="#">
                   <Image src={shuffle} alt="shuffle" />
