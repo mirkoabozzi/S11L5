@@ -1,17 +1,31 @@
-import { Image } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import shuffle from "../assets/playerbuttons/shuffle.png";
 import prev from "../assets/playerbuttons/prev.png";
 import play from "../assets/playerbuttons/play.png";
 import next from "../assets/playerbuttons/next.png";
 import repeat from "../assets/playerbuttons/repeat.png";
+import { useSelector } from "react-redux";
 
 const Player = () => {
+  const song = useSelector((state) => state.mainHomeReducers.song);
+
   return (
-    <div className="container-fluid fixed-bottom bg-container pt-1">
-      <div className="row h-100">
-        <div className="col-lg-10 offset-lg-2">
-          <div className="row h-100 flex-column justify-content-center align-items-center">
-            <div className="col-6 col-md-4 playerControls">
+    <Container fluid className="fixed-bottom bg-container pt-1">
+      <Row className="h-100">
+        <Col lg="10" className="offset-lg-2">
+          <Row className="h-100 justify-content-center">
+            <Col xs="4">
+              <Row>
+                <Col xs="3">
+                  <Image className="img-fluid mt-2" width="70" src={song.album.cover_medium} alt="track" />
+                </Col>
+                <Col xs="8">
+                  <p className="text-white">{song.title}</p>
+                  <p className="text-white">{song.artist.name}</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs="8" md="6" className="playerControls">
               <div className="d-flex">
                 <a href="#">
                   <Image src={shuffle} alt="shuffle" />
@@ -32,11 +46,11 @@ const Player = () => {
               <div className="progress mt-3">
                 <div role="progressbar"></div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 export default Player;

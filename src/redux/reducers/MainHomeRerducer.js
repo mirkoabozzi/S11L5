@@ -1,9 +1,11 @@
-import { HIP_HOP, POP_CULTURE, ROCK_CLASSIC } from "../actions";
+import { HIP_HOP, POP_CULTURE, ROCK_CLASSIC, SELECT_SONG, SONG } from "../actions";
 
 const intialState = {
   rockClassic: [],
   popCulture: [],
   hipHop: [],
+  isSelected: false,
+  song: [],
 };
 
 const MainHomeReducers = (state = intialState, action) => {
@@ -23,6 +25,16 @@ const MainHomeReducers = (state = intialState, action) => {
         ...state,
         hipHop: action.payload,
       };
+    case SONG:
+      return {
+        ...state,
+        song: action.payload,
+      };
+    // case SELECT_SONG:
+    //   return {
+    //     ...state,
+    //     isSelected: true,
+    //   };
 
     default:
       return state;

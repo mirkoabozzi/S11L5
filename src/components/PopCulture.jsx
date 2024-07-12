@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSongs, POP_CULTURE } from "../redux/actions";
+import { getSongs, POP_CULTURE, SONG } from "../redux/actions";
+import { Col, Image } from "react-bootstrap";
 
 const PopCulture = () => {
   const popCulture = useSelector((state) => state.mainHomeReducers.popCulture);
@@ -13,14 +14,21 @@ const PopCulture = () => {
 
   return popCulture.slice(0, 4).map((song) => {
     return (
-      <div key={song.id} className="col text-center">
-        <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+      <Col key={song.id} className="col text-center">
+        <Image
+          className="img-fluid"
+          src={song.album.cover_medium}
+          alt="track"
+          onClick={() => {
+            dispatch({ type: SONG, payload: song });
+          }}
+        />
         <p>
           Track: {song.title}
           <br />
           Artist: {song.artist.name}
         </p>
-      </div>
+      </Col>
     );
   });
 };
