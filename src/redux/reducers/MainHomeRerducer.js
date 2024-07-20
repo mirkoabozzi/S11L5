@@ -1,4 +1,4 @@
-import { FAVOURITES, HIP_HOP, IS_SELECTED, POP_CULTURE, ROCK_CLASSIC, SONG, USER_INPUT } from "../actions";
+import { FAVOURITES, HIP_HOP, IS_SELECTED, POP_CULTURE, REMOVE_FAVOURITES, ROCK_CLASSIC, SONG, USER_INPUT } from "../actions";
 
 const intialState = {
   rockClassic: [],
@@ -43,6 +43,12 @@ const MainHomeReducers = (state = intialState, action) => {
         ...state,
         favourites: [...state.favourites, action.payload],
       };
+    case REMOVE_FAVOURITES:
+      return {
+        ...state,
+        favourites: state.favourites.filter((song) => song.id !== action.payload.id),
+      };
+
     case USER_INPUT:
       return {
         ...state,

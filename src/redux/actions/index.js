@@ -5,6 +5,7 @@ export const FAVOURITES = "FAVOURITES";
 export const SONG = "SONG";
 export const IS_SELECTED = "IS_SELECTED";
 export const USER_INPUT = "USER_INPUT";
+export const REMOVE_FAVOURITES = "REMOVE_FAVOURITES";
 
 export const getSongs = (type, artistName) => {
   return async (dispatch) => {
