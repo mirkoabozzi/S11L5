@@ -7,8 +7,6 @@ const RockClassic = () => {
   const rockClassic = useSelector((state) => state.mainHomeReducers.rockClassic);
   const dispatch = useDispatch();
 
-  const isSelected = useSelector((state) => state.mainHomeReducers.isSelected);
-
   const favourites = useSelector((state) => state.mainHomeReducers.favourites);
 
   const userInput = useSelector((state) => state.mainHomeReducers.userInput);
