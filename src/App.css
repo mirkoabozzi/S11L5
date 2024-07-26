@@ -170,3 +170,8 @@ ul {
 .mainPage img {
   width: 200px;
 }
+
+img,
+svg:hover {
+  cursor: pointer;
+}
