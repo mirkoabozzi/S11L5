@@ -13,12 +13,8 @@ const Player = () => {
 
   const favourites = useSelector((state) => state.mainHomeReducers.favourites);
 
-  const isFavourite = (song) => {
-    return FAVOURITES.some((favSong) => favSong.id === song.id);
-  };
-
   const handleFavourite = (song) => {
-    if (isFavourite(song)) {
+    if (favourites.includes(song)) {
       dispatch({ type: REMOVE_FAVOURITES, payload: song });
     } else {
       dispatch({ type: FAVOURITES, payload: song });
