@@ -1,33 +1,34 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FAVOURITES, getSongs, IS_SELECTED, POP_CULTURE, REMOVE_FAVOURITES, SONG } from "../redux/actions";
+import { FAVORITES, getSongs, HIP_HOP, IS_SELECTED, POP_CULTURE, REMOVE_FAVORITES, ROCK_CLASSIC, SONG } from "../redux/actions";
 import { Col, Image } from "react-bootstrap";
+import { useEffect } from "react";
 
-const PopCulture = () => {
-  const popCulture = useSelector((state) => state.mainHomeReducers.popCulture);
+const Tracks = ({ songs }) => {
   const dispatch = useDispatch();
+  const userInput = useSelector((state) => state.mainHomeReducers.userInput);
 
-  const favourites = useSelector((state) => state.mainHomeReducers.favourites);
+  const favorites = useSelector((state) => state.mainHomeReducers.favorites);
 
-  const isFavourite = (song) => {
-    return favourites.some((favSong) => favSong.id === song.id);
+  const isFavorite = (song) => {
+    return favorites.some((favSong) => favSong.id === song.id);
   };
 
-  const handleFavourite = (song) => {
-    if (isFavourite(song)) {
-      dispatch({ type: REMOVE_FAVOURITES, payload: song });
+  const handleFavorite = (song) => {
+    if (isFavorite(song)) {
+      dispatch({ type: REMOVE_FAVORITES, payload: song });
     } else {
-      dispatch({ type: FAVOURITES, payload: song });
+      dispatch({ type: FAVORITES, payload: song });
     }
   };
 
   useEffect(() => {
+    dispatch(getSongs(HIP_HOP, "eminem"));
     dispatch(getSongs(POP_CULTURE, "katyperry"));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(getSongs(ROCK_CLASSIC, userInput));
+  }, [dispatch, userInput]);
 
-  return popCulture.slice(0, 4).map((song) => {
-    const fav = isFavourite(song);
+  return songs.slice(0, 4).map((song) => {
+    const fav = isFavorite(song);
 
     return (
       <Col key={song.id} className="text-center">
@@ -40,8 +41,7 @@ const PopCulture = () => {
             dispatch({ type: IS_SELECTED, payload: true });
           }}
         />
-
-        <div onClick={() => handleFavourite(song)}>
+        <div onClick={() => handleFavorite(song)}>
           {fav ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
@@ -52,7 +52,6 @@ const PopCulture = () => {
             </svg>
           )}
         </div>
-
         <p>
           Track: {song.title}
           <br />
@@ -62,4 +61,5 @@ const PopCulture = () => {
     );
   });
 };
-export default PopCulture;
+
+export default Tracks;

@@ -1,11 +1,11 @@
 export const ROCK_CLASSIC = "ROCK_CLASSIC";
 export const POP_CULTURE = "POP_CULTURE";
 export const HIP_HOP = "HIP_HOP";
-export const FAVOURITES = "FAVOURITES";
+export const FAVORITES = "FAVORITES";
 export const SONG = "SONG";
 export const IS_SELECTED = "IS_SELECTED";
 export const USER_INPUT = "USER_INPUT";
-export const REMOVE_FAVOURITES = "REMOVE_FAVOURITES";
+export const REMOVE_FAVORITES = "REMOVE_FAVORITES";
 
 export const getSongs = (type, artistName) => {
   return async (dispatch) => {

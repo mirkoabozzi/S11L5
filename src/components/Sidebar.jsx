@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { USER_INPUT } from "../redux/actions";
 const Sidebar = () => {
-  const [inputValue, setInputvalue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
 
   return (
@@ -46,7 +46,7 @@ const Sidebar = () => {
                     }}
                   >
                     <Form.Group className="mt-3">
-                      <Form.Control type="text" className="form-control" placeholder="Search" aria-label="Search" value={inputValue} onChange={(e) => setInputvalue(e.target.value)} />
+                      <Form.Control type="text" className="form-control" placeholder="Search" aria-label="Search" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                       <div className="input-group-append">
                         <Button type="submit" className="bg-transparent btn-secondary btn-sm h-100 mt-2">
                           GO
@@ -60,7 +60,7 @@ const Sidebar = () => {
           </Navbar.Collapse>
         </Container>
         <div className="nav-btn">
-          <Button className="btn signup-btn" type="button">
+          <Button className="btn signUp-btn" type="button">
             Sign Up
           </Button>
           <Button className="btn login-btn" type="button">

@@ -5,23 +5,21 @@ import play from "../assets/playerbuttons/play.png";
 import next from "../assets/playerbuttons/next.png";
 import repeat from "../assets/playerbuttons/repeat.png";
 import { useDispatch, useSelector } from "react-redux";
-import { FAVOURITES, REMOVE_FAVOURITES } from "../redux/actions";
+import { FAVORITES, REMOVE_FAVORITES } from "../redux/actions";
 
 const Player = () => {
   const song = useSelector((state) => state.mainHomeReducers.song);
   const dispatch = useDispatch();
 
-  const favourites = useSelector((state) => state.mainHomeReducers.favourites);
+  const favorites = useSelector((state) => state.mainHomeReducers.favorites);
 
-  const handleFavourite = (song) => {
-    if (favourites.includes(song)) {
-      dispatch({ type: REMOVE_FAVOURITES, payload: song });
+  const handleFavorite = (song) => {
+    if (favorites.includes(song)) {
+      dispatch({ type: REMOVE_FAVORITES, payload: song });
     } else {
-      dispatch({ type: FAVOURITES, payload: song });
+      dispatch({ type: FAVORITES, payload: song });
     }
   };
-  //console.log("favourites", favourites);
-  //console.log("song", song);
 
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
@@ -42,8 +40,8 @@ const Player = () => {
               )}
             </Col>
             {song && (
-              <Col xs="1" onClick={() => handleFavourite(song)}>
-                {favourites.includes(song) ? (
+              <Col xs="1" onClick={() => handleFavorite(song)}>
+                {favorites.includes(song) ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-heart-fill" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
                   </svg>

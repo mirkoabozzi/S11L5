@@ -1,16 +1,16 @@
-import { FAVOURITES, HIP_HOP, IS_SELECTED, POP_CULTURE, REMOVE_FAVOURITES, ROCK_CLASSIC, SONG, USER_INPUT } from "../actions";
+import { FAVORITES, HIP_HOP, IS_SELECTED, POP_CULTURE, REMOVE_FAVORITES, ROCK_CLASSIC, SONG, USER_INPUT } from "../actions";
 
-const intialState = {
+const initialState = {
   rockClassic: [],
   popCulture: [],
   hipHop: [],
   song: null,
-  favourites: [],
+  favorites: [],
   isSelected: false,
   userInput: "queen",
 };
 
-const MainHomeReducers = (state = intialState, action) => {
+const MainHomeReducers = (state = initialState, action) => {
   switch (action.type) {
     case ROCK_CLASSIC:
       return {
@@ -38,15 +38,15 @@ const MainHomeReducers = (state = intialState, action) => {
         ...state,
         isSelected: action.payload,
       };
-    case FAVOURITES:
+    case FAVORITES:
       return {
         ...state,
-        favourites: [...state.favourites, action.payload],
+        favorites: [...state.favorites, action.payload],
       };
-    case REMOVE_FAVOURITES:
+    case REMOVE_FAVORITES:
       return {
         ...state,
-        favourites: state.favourites.filter((song) => song.id !== action.payload.id),
+        favorites: state.favorites.filter((song) => song.id !== action.payload.id),
       };
 
     case USER_INPUT:
